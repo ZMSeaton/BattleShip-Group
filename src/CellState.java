@@ -1,3 +1,3 @@
-public class Cell_State {
+public class CellState {
     
 }
