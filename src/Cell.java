@@ -1,7 +1,6 @@
 public class Cell {
     private CellState cell_state;
-
-private Ship ship;
+    private Ship ship;
 
     public CellState getState() {
         return cell_state;
