@@ -30,4 +30,8 @@ public class Ship {
         this.coordinates = coordinates;
     }
 
+    public String getName(){
+        return name;
+    }
+
 }
