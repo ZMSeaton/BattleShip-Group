@@ -1,3 +1,7 @@
-public class CellState {
-    
-}
+
+    public enum CellState {
+      HIT,
+        MISS,
+        OCCUPIED,
+        EMPTY 
+    }
