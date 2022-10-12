@@ -1,3 +1,5 @@
-public class ShotResult {
-    
+public enum ShotResult {
+    HIT,
+    SUNK,
+    MISS
 }
