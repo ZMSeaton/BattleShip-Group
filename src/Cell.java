@@ -13,4 +13,9 @@ public class Cell {
     public void setShip(Ship ship) {
         this.ship = ship;
     }
+    public Ship getShip(){
+
+return ship;
+
+    }
 }
