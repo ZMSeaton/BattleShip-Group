@@ -1,4 +1,5 @@
 public class Grid {
+    
     protected Cell cells[][] = new Cell[10][10];
 
     public Grid(){
