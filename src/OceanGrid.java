@@ -26,7 +26,7 @@ public class OceanGrid extends Grid{
 
     public Boolean isAllShipsSunk(){
         for(Ship ship : ships){
-            if (ship.isSunk() != false){
+            if (ship.isSunk() != true){
                 return false;
             }
         }
