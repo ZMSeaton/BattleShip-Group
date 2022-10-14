@@ -41,8 +41,19 @@ public class Grid {
         System.out.println("|   | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10|");
     }
 
-    protected String contentDisplay(Cell cell){ //Use when we decide how we'll display the ships, hits, and misses
-        return " ";
+    protected String contentDisplay(Cell cell){ //Might change depending on how we decide to display grid contents
+        CellState state = cell.getState();
+        if (state == CellState.EMPTY){
+            return " ";
+        } else if (state == CellState.HIT){
+            return "X";
+        } else if (state == CellState.MISS){
+            return "O";
+        } else if (state == CellState.OCCUPIED){
+            return "S";
+        } else {
+            return "Invalid CellState";
+        }
     }
 
 }
