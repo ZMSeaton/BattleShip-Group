@@ -1,7 +1,7 @@
 public class HumanPlayer implements IPlayer {
 
     protected String name;
-    protected ShipPlacer ship_placer = new ShipPlacer();
+    protected ShipBuilder shipbuilder = new ShipBuilder();
     protected TargetGrid Targetgrid;
     protected OceanGrid ocean_Grid;
 

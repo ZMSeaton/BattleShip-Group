@@ -24,7 +24,7 @@ public class OceanGrid extends Grid{
         return ships;
     }
 
-return ships;}
+}
 
     public ShotResult getShotResult(Shot shot){
         Cell cell = cells[shot.getRow()][shot.getColumn()];
