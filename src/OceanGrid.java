@@ -20,9 +20,18 @@ public class OceanGrid extends Grid{
         }
     }
 
-    public ArrayList<Ship> GetShips(){
+    public ArrayList<Ship> getShips(){
+        return ships;
+    }
 
-return ships;
+    public Boolean isAllShipsSunk(){
+        for(Ship ship : ships){
+            if (ship.isSunk() != false){
+                return false;
+            }
+        }
+        return true;
+    }
 
     public ShotResult getShotResult(Shot shot){
         Cell cell = cells[shot.getRow()][shot.getColumn()];
