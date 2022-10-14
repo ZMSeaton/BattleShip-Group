@@ -3,7 +3,7 @@ public class Grid {
     protected Cell cells[][] = new Cell[10][10];
 
     public Grid(){
-        for(int row = 0; row < 10; row ++){ //Initially fill every cell with an empty state 
+        for(int row = 0; row < 10; row ++){ //Initially fill every cell with an empty state  
             for(int col = 0; col < 10; col ++){
                 cells[row][col] = new Cell();
                 cells[row][col].setState(CellState.EMPTY);
