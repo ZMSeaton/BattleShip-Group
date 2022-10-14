@@ -25,6 +25,7 @@ public class OceanGrid extends Grid{
         if ( cell.getState() == CellState.EMPTY){
             return ShotResult.MISS;
         } else if ( cell.getState() == CellState.OCCUPIED ) {
+            cell.getShip().hit(); //Should this be where ship is hit?
             if (cell.getShip().isSunk()){
                 return ShotResult.SUNK;
             } else {
