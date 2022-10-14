@@ -20,7 +20,9 @@ public class OceanGrid extends Grid{
         }
     }
 
-    public ArrayList<Ship> GetShips(){
+    public ArrayList<Ship> getShips(){
+        return ships;
+    }
 
 return ships;}
 
