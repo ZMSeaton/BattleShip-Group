@@ -1,37 +1,46 @@
+import java.util.ArrayList;
+
 public class Ship {
-    private String name;
-    private int length;
+    private String name; //getter
+    private int length; //getter
     private int hitCount = 0;
-    private int[][] coordinates;
+    //private int[][] coordinates;// 
+    private ArrayList<Coordinate> coordinates = new ArrayList<Coordinate>(); //getter and setter
 
     public Ship(String name, int length){
         this.name = name;
         this.length = length;
-        this.coordinates = new int[2][length]; //array of arrays holding two ints, first int is row, second is column, change if we decide to hold coordinates differently
+       // this.coordinates = new int[2][length]; //array of arrays holding two ints, first int is row, second is column
     }
 
-    public void hit(){ //rename to increase hitCount?
+    public void registerHit(){ //rename to increase hitCount?
         hitCount++;
     }
 
     public Boolean isSunk(){
-        if(length > hitCount){
+        if(length >= hitCount){
             return false;
         } else {
             return true;
         }
     }
 
-    public int[][] getCoordinates(){
+    public ArrayList<Coordinate> getCoordinates(){
         return coordinates;
     }
 
-    public void enterCoordinates(int[][] coordinates){
-        this.coordinates = coordinates;
+    public void setCoordinates(ArrayList<Coordinate> value){
+        coordinates = value;
+        
+
     }
 
     public String getName(){
         return name;
+    }
+
+    public int getLength(){
+        return length;
     }
 
 }
