@@ -20,6 +20,10 @@ public class OceanGrid extends Grid{
         }
     }
 
+    public ArrayList<Ship> GetShips(){
+
+return ships;
+
     public ShotResult getShotResult(Shot shot){
         Cell cell = cells[shot.getRow()][shot.getColumn()];
         if ( cell.getState() == CellState.EMPTY){
