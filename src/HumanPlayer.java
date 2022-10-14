@@ -38,7 +38,7 @@ public class HumanPlayer implements IPlayer {
     }
 
     public boolean allShipsAreSunk() {
-        if (ocean_Grid.GetShips().isEmpty()) {
+        if (ocean_Grid.getShips().isEmpty()) {
 
             return true;
         }
