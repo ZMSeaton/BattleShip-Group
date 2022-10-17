@@ -12,4 +12,12 @@ public class TargetGrid extends Grid {
         }
     }
 
+    public void updateTargetGrid(Shot shot, ShotResult result){
+        switch(result){
+            case HIT -> cells[shot.getRow()][shot.getColumn()].setState(CellState.HIT);
+            case SUNK -> cells[shot.getRow()][shot.getColumn()].setState(CellState.HIT);
+            case MISS -> cells[shot.getRow()][shot.getColumn()].setState(CellState.MISS);
+        }
+    }
+
 }
