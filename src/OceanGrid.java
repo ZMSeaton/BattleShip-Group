@@ -13,7 +13,7 @@ public class OceanGrid extends Grid{
         }
     }
 
-    public void placeShip(Ship ship){ //might change depending on how we decide ship coordinates are stored
+    public void placeShip(Ship ship){
         for (Coordinate coordinates : ship.getCoordinates()){
             cells[coordinates.getRow()][coordinates.getColumn()].setState(CellState.OCCUPIED);
             cells[coordinates.getRow()][coordinates.getColumn()].setShip(ship);
@@ -38,6 +38,15 @@ public class OceanGrid extends Grid{
         } else {
             return null; //shouldn't be able to happen
         }
+    }
+
+    public Boolean isAllShipsSunk(){
+        for(Ship ship : ships){
+            if (ship.isSunk() == false){
+                return false;
+            }
+        }
+        return true;
     }
 
 }
