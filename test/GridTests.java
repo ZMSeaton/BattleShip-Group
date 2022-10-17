@@ -11,6 +11,11 @@ public class GridTests {
     @Test
     public void testOceanPrintBoard(){
         ShipBuilder shipBuilder = new ShipBuilder();
+        for (Ship ship : shipBuilder.getShips()){
+            for (Coordinate coord : ship.getCoordinates()){
+                System.out.println(coord.getRow() + " " + coord.getColumn());
+            }
+        }
         OceanGrid oceanGrid = new OceanGrid(shipBuilder.getShips());
         oceanGrid.printGrid();
     }
