@@ -17,6 +17,10 @@ public class ShipBuilder {
 
     private Random rand = new Random();
 
+    public ShipBuilder(){
+        buildShips(ships);
+    }
+
     private void buildShips(Ship[] ships) {
 
         for (Ship ship : ships) {
@@ -43,8 +47,10 @@ public class ShipBuilder {
           
                 boolean result = checkUsedCoordinates(resultingCoordinates, resultingCoordinates);
                 //if false continue
-                if(result = true){
+                if(result == true){
                     ship.setCoordinates(resultingCoordinates);
+                    //add resultingCoordinates to used coordinates
+                    usedCoordinates.addAll(resultingCoordinates);
                 }else{
                     continue;
                 }
