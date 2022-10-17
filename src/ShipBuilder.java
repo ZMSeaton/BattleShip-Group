@@ -21,6 +21,10 @@ public class ShipBuilder {
         buildShips(ships);
     }
 
+    public Ship[] getShips(){
+        return ships;
+    }
+
     private void buildShips(Ship[] ships) {
 
         for (Ship ship : ships) {
