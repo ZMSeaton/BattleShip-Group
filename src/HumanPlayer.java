@@ -1,12 +1,15 @@
 public class HumanPlayer implements IPlayer {
 
     protected String name;
-    protected ShipBuilder shipbuilder = new ShipBuilder();
-    protected TargetGrid Targetgrid;
-    protected OceanGrid ocean_Grid;
+    protected ShipBuilder shipBuilder = new ShipBuilder();
+    protected TargetGrid targetGrid;
+    protected OceanGrid oceanGrid;
 
     public HumanPlayer(String name) {
         this.name = name;
+       oceanGrid=new OceanGrid(null);
+        targetGrid=new TargetGrid();
+
 
     }
 
@@ -16,8 +19,8 @@ public class HumanPlayer implements IPlayer {
     }
 
     public Shot takeShot() {
-        ocean_Grid.printGrid();
-        Targetgrid.printGrid();
+        oceanGrid.printGrid();
+        targetGrid.printGrid();
 
         String humancoordinate = ConsoleHelper.getInput("Type where you want to shoot.");
         
@@ -38,7 +41,7 @@ public class HumanPlayer implements IPlayer {
     }
 
     public boolean allShipsAreSunk() {
-        if (ocean_Grid.getShips().isEmpty()) {
+        if (oceanGrid.getShips().isEmpty()) {
 
             return true;
         }
@@ -47,11 +50,13 @@ public class HumanPlayer implements IPlayer {
     }
 
     public void PlaceShips() {
+        shipBuilder.buildShips(oceanGrid.getShips());
+        
 
     }
 
     public ShotResult RecieveShot(Shot gotshot) {
-        return ocean_Grid.getShotResult(gotshot);
+        return oceanGrid.getShotResult(gotshot);
     }
 
     public void RecieveShotResult(ShotResult shotResult) {
