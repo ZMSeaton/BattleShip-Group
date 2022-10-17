@@ -7,9 +7,8 @@ public class HumanPlayer implements IPlayer {
 
     public HumanPlayer(String name) {
         this.name = name;
-       oceanGrid=new OceanGrid(null);
-        targetGrid=new TargetGrid();
-
+        oceanGrid = new OceanGrid(null);
+        targetGrid = new TargetGrid();
 
     }
 
@@ -23,10 +22,10 @@ public class HumanPlayer implements IPlayer {
         targetGrid.printGrid();
 
         String humancoordinate = ConsoleHelper.getInput("Type where you want to shoot.");
-        
+
         Shot shot;
         while (true) {
-            
+
             try {
 
                 shot = new Shot(humancoordinate);
@@ -36,6 +35,13 @@ public class HumanPlayer implements IPlayer {
                 continue;
             }
         }
+        while (true){
+if(oceanGrid.cells[shot.getColumn()][shot.getRow()].getState()==CellState.HIT){
+    System.out.println("Those coordinates don't work.");
+    continue;
+
+} else{break;}
+}
         return shot;
 
     }
@@ -51,7 +57,6 @@ public class HumanPlayer implements IPlayer {
 
     public void PlaceShips() {
         shipBuilder.buildShips(oceanGrid.getShips());
-        
 
     }
 
