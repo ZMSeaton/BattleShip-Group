@@ -17,7 +17,7 @@ public class ShipBuilder {
 
     private Random rand = new Random();
 
-    private void buildShip(Ship[] ships) {
+    private void buildShips(Ship[] ships) {
 
         for (Ship ship : ships) {
 
