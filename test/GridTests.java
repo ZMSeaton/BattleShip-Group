@@ -5,7 +5,7 @@ public class GridTests {
     
     @Test
     public void createOceanGrid(){
-        OceanGrid oceanGrid = new OceanGrid(new Ship[] {new Ship("TestShip", 3)});
+        OceanGrid oceanGrid = new OceanGrid(new Ship[] {new Ship("TestShip", 5)});
     }
 
     @Test
