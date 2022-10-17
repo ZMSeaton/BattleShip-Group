@@ -86,7 +86,7 @@ public class ShipBuilder {
         ArrayList<Coordinate> returnList = new ArrayList<Coordinate>();
         returnList.add(c);
 
-        for (int i = 1; i < length; i++) {
+        for (int i = 2; i < length; i++) {
 
             Coordinate prev = returnList.get(i - 1);
 
