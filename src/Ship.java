@@ -11,7 +11,7 @@ public class Ship {
         this.length = length;
     }
 
-    public void registerHit() { // rename to increase hitCount?
+    public void registerHit() {
         hitCount++;
     }
 
@@ -27,7 +27,7 @@ public class Ship {
         return coordinates;
     }
 
-    public void setCoordinates(ArrayList<Coordinate> value) {
+    public void setCoordinates(ArrayList<Coordinate> value) { // Have in constructor?
         coordinates = value;
     }
 
