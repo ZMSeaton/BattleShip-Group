@@ -1,4 +1,4 @@
-public class AIPlayer implements IPlayer {
+/*public class AIPlayer implements IPlayer {
 
     String name;
 
@@ -14,3 +14,4 @@ public class AIPlayer implements IPlayer {
 
     }
 }
+*/ //Temporarily commented out to avoid java complaints
