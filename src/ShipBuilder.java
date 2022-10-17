@@ -39,7 +39,7 @@ public class ShipBuilder {
                 Coordinate c;
 
                 // use length and orientation to create the first coordinate.
-                if (o == Orientation.HORIZONTAL) {
+                if (o == Orientation.VERTICAL) {
 
                     c = new Coordinate(a, b);
 
