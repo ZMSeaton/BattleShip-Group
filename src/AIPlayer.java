@@ -1,4 +1,4 @@
-/// public class AIPlayer implements IPlayer {
+/*public class AIPlayer implements IPlayer {
 
 /// String name;
 
@@ -12,5 +12,6 @@
 
 /// public boolean allShipsAreSunk() {
 
-/// }
-/// }
+    }
+}
+*/ //Temporarily commented out to avoid java complaints
