@@ -49,7 +49,7 @@ public class ShipBuilder {
 
                 ArrayList<Coordinate> resultingCoordinates = makeCoordinates(c, o, length);
           
-                boolean result = checkUsedCoordinates(resultingCoordinates, resultingCoordinates);
+                boolean result = checkUsedCoordinates(usedCoordinates, resultingCoordinates);
                 //if false continue
                 if(result == true){
                     ship.setCoordinates(resultingCoordinates);
