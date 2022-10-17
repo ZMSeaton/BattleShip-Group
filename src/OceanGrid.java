@@ -27,9 +27,11 @@ public class OceanGrid extends Grid{
     public ShotResult getShotResult(Shot shot){
         Cell cell = cells[shot.getRow()][shot.getColumn()];
         if ( cell.getState() == CellState.EMPTY){
+            cell.setState(CellState.MISS); //updates the cell's state //should this happen here?
             return ShotResult.MISS;
         } else if ( cell.getState() == CellState.OCCUPIED ) {
             cell.getShip().registerHit(); //Should this be where ship is hit?
+            cell.setState(CellState.HIT); //updates the cell's state //should this happen here?
             if (cell.getShip().isSunk()){
                 return ShotResult.SUNK;
             } else {
