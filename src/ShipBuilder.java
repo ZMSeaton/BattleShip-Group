@@ -55,9 +55,12 @@ public class ShipBuilder {
                     ship.setCoordinates(resultingCoordinates);
                     //add resultingCoordinates to used coordinates
                     usedCoordinates.addAll(resultingCoordinates);
+                    break;
                 }else{
                     continue;
                 }
+
+            
             }
 
         }
