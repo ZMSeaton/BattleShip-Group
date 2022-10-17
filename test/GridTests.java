@@ -20,4 +20,11 @@ public class GridTests {
         TargetGrid targetGrid = new TargetGrid();
         targetGrid.printGrid();
     }
+
+    @Test
+    public void testTargetGridIsShotValid(){
+        TargetGrid targetGrid = new TargetGrid();
+        assertTrue(targetGrid.isShotValid(5, 5));
+    }
+
 }
