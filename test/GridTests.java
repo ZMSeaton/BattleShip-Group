@@ -10,7 +10,8 @@ public class GridTests {
 
     @Test
     public void testOceanPrintBoard(){
-        OceanGrid oceanGrid = new OceanGrid();
+        ShipBuilder shipBuilder = new ShipBuilder();
+        OceanGrid oceanGrid = new OceanGrid(shipBuilder.getShips());
         oceanGrid.printGrid();
     }
 

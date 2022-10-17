@@ -51,7 +51,7 @@ public class Grid {
         } else if (state == CellState.MISS){
             return "O";
         } else if (state == CellState.OCCUPIED){
-            return "S";
+            return String.valueOf(cell.getShip().getName().charAt(0)); //Displays first letter of ship
         } else {
             return "Invalid CellState";
         }
