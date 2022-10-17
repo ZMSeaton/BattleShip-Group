@@ -35,13 +35,15 @@ public class HumanPlayer implements IPlayer {
                 continue;
             }
         }
-        while (true){
-if(oceanGrid.cells[shot.getColumn()][shot.getRow()].getState()==CellState.HIT){
-    System.out.println("Those coordinates don't work.");
-    continue;
+        while (true) {
+            if (targetGrid.isShotValid(shot.getRow(), shot.getColumn())==true) {
+                System.out.println("Those coordinates have already been shot at.");
+                continue;
 
-} else{break;}
-}
+            } else {
+                break;
+            }
+        }
         return shot;
 
     }
