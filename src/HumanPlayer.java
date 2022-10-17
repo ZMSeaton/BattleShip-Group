@@ -7,7 +7,7 @@ public class HumanPlayer implements IPlayer {
 
     public HumanPlayer(String name) {
         this.name = name;
-        oceanGrid = new OceanGrid(null);
+        oceanGrid = new OceanGrid(shipBuilder.getShips());
         targetGrid = new TargetGrid();
 
     }
@@ -58,7 +58,7 @@ public class HumanPlayer implements IPlayer {
     }
 
     public void PlaceShips() {
-        shipBuilder.buildShips(oceanGrid.getShips());
+       
 
     }
 
