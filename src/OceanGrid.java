@@ -14,9 +14,9 @@ public class OceanGrid extends Grid{
     }
 
     public void placeShip(Ship ship){ //might change depending on how we decide ship coordinates are stored
-        for (int[] coordinates : ship.getCoordinates()){
-            cells[coordinates[0]][coordinates[1]].setState(CellState.OCCUPIED);
-            cells[coordinates[0]][coordinates[1]].setShip(ship);
+        for (Coordinate coordinates : ship.getCoordinates()){
+            cells[coordinates.getRow()][coordinates.getColumn()].setState(CellState.OCCUPIED);
+            cells[coordinates.getRow()][coordinates.getColumn()].setShip(ship);
         }
     }
 
@@ -29,7 +29,7 @@ public class OceanGrid extends Grid{
         if ( cell.getState() == CellState.EMPTY){
             return ShotResult.MISS;
         } else if ( cell.getState() == CellState.OCCUPIED ) {
-            cell.getShip().hit(); //Should this be where ship is hit?
+            cell.getShip().registerHit(); //Should this be where ship is hit?
             if (cell.getShip().isSunk()){
                 return ShotResult.SUNK;
             } else {
