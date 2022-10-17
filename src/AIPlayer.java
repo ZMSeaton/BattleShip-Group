@@ -1,16 +1,16 @@
-public class AIPlayer implements IPlayer {
+/// public class AIPlayer implements IPlayer {
 
-    String name;
+/// String name;
 
-    public String get_name() {
-        return name;
-    }
+/// public String get_name() {
+//// return name;
+/// }
 
-    public Shot takeShot() {
+/// public Shot takeShot() {
 
-    }
+/// }
 
-    public boolean allShipsAreSunk() {
+/// public boolean allShipsAreSunk() {
 
-    }
-}
+/// }
+/// }
