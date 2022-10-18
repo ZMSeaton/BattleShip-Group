@@ -34,12 +34,24 @@ public class testShipBuilder {
     }
 
     @Test
-    public void testShipPlacing(){
+    public void testShipPlacing() throws Exception {
+
         ShipBuilder shipBuilder = new ShipBuilder();
-        for (Ship ship : shipBuilder.getShips()){
+
+        for (Ship ship : shipBuilder.getShips()) {
+
             System.out.println(ship.getName());
-            for (Coordinate coord : ship.getCoordinates()){
+
+            for (Coordinate coord : ship.getCoordinates()) {
+
+                if ((coord.getRow() < 0) || (coord.getRow() > 9)) {
+                    throw new Exception("Row is out of bounds: " + coord.getRow());
+                } else if ((coord.getColumn() < 0) || (coord.getColumn() > 9)) {
+                    throw new Exception("Column is out of bounds: " + coord.getColumn());
+                }
+
                 System.out.println(coord.getRow() + " " + coord.getColumn());
+
             }
         }
     }
