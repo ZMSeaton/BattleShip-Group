@@ -1,14 +1,12 @@
 public interface IPlayer {
 
-    public String get_name();
-
-    public void PlaceShips();
+    public String getName();
 
     public Shot takeShot();
 
     public boolean allShipsAreSunk();
 
-    public ShotResult RecieveShot(Shot shot);
+    public ShotResult recieveShot(Shot shot);
 
-    public void RecieveShotResult(ShotResult shotResult);
+    public void recieveShotResult(ShotResult shotResult, Shot shot);
 }

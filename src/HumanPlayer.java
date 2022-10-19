@@ -12,64 +12,59 @@ public class HumanPlayer implements IPlayer {
 
     }
 
-    public String get_name() {
-
+    public String getName() {
         return name;
     }
 
-    public Shot takeShot() {
-        oceanGrid.printGrid();
+    public void printGrids(){
         targetGrid.printGrid();
+        oceanGrid.printGrid();
+    }
 
-        String humancoordinate = ConsoleHelper.getInput("Type where you want to shoot.");
+    public Shot takeShot() {
+        printGrids();
+
+        String humancoordinate;
 
         Shot shot;
+
         while (true) {
+
+            humancoordinate = ConsoleHelper.getInput("Type where you want to shoot.");
 
             try {
-
                 shot = new Shot(humancoordinate);
-                break;
             } catch (Exception exception) {
-                System.out.println("Those coordinates don't work.");
+                System.out.println(exception.getMessage());
                 continue;
             }
-        }
-        while (true) {
-            if (targetGrid.isShotValid(shot.getRow(), shot.getColumn())==true) {
+        
+            if (targetGrid.isShotValid(shot.getRow(), shot.getColumn())) {
+                break;
+            } else {
                 System.out.println("Those coordinates have already been shot at.");
                 continue;
-
-            } else {
-                break;
             }
         }
+
         return shot;
 
     }
 
     public boolean allShipsAreSunk() {
-        if (oceanGrid.getShips().isEmpty()) {
-
+        if (oceanGrid.isAllShipsSunk()) {
             return true;
         }
-
         return false;
     }
 
-    public void PlaceShips() {
-       
-
-    }
-
-    public ShotResult RecieveShot(Shot gotshot) {
+    public ShotResult recieveShot(Shot gotshot) {
         return oceanGrid.getShotResult(gotshot);
     }
 
-    public void RecieveShotResult(ShotResult shotResult) {
-
-        System.out.printf("Your oponent's shot was a %s", shotResult.toString());
-
+    public void recieveShotResult(ShotResult shotResult, Shot shot) {
+        targetGrid.updateTargetGrid(shot, shotResult);
+        //System.out.printf("Your oponent's shot was a %s", shotResult.toString());
     }
 
 }
