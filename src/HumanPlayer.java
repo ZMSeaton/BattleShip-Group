@@ -62,4 +62,8 @@ public class HumanPlayer implements IPlayer {
         targetGrid.updateTargetGrid(shot, shotResult);
     }
 
+    public Ship getLastSunkShip(){
+        return oceanGrid.getLastSunkShip();
+    }
+
 }
