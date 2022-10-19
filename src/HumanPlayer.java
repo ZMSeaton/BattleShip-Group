@@ -9,7 +9,6 @@ public class HumanPlayer implements IPlayer {
         this.name = name;
         oceanGrid = new OceanGrid(shipBuilder.getShips());
         targetGrid = new TargetGrid();
-
     }
 
     public String getName() {
@@ -22,7 +21,6 @@ public class HumanPlayer implements IPlayer {
     }
 
     public Shot takeShot() {
-        printGrids();
 
         String humancoordinate;
 
@@ -38,16 +36,14 @@ public class HumanPlayer implements IPlayer {
                 System.out.println(exception.getMessage());
                 continue;
             }
-        
+
             if (targetGrid.isShotValid(shot.getRow(), shot.getColumn())) {
-                break;
+                return shot;
             } else {
                 System.out.println("Those coordinates have already been shot at.");
                 continue;
             }
         }
-
-        return shot;
 
     }
 
@@ -64,7 +60,6 @@ public class HumanPlayer implements IPlayer {
 
     public void recieveShotResult(ShotResult shotResult, Shot shot) {
         targetGrid.updateTargetGrid(shot, shotResult);
-        //System.out.printf("Your oponent's shot was a %s", shotResult.toString());
     }
 
 }
