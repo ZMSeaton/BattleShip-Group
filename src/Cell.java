@@ -1,13 +1,13 @@
-public class Cell {
-    private CellState cell_state;
+public final class Cell {
+    private CellState cellState;
     private Ship ship;
 
     public CellState getState() {
-        return cell_state;
+        return cellState;
     }
 
-    public void setState(CellState cell_state) {
-        this.cell_state = cell_state;
+    public void setState(CellState cellState) {
+        this.cellState = cellState;
     }
 
     public void setShip(Ship ship) {

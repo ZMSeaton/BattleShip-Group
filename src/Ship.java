@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Ship {
+public final class Ship {
     private String name; // getter
     private int length; // getter
     private int hitCount = 0;

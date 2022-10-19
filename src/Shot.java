@@ -1,4 +1,4 @@
-public class Shot {
+public final class Shot {
     private int row;
     private int column;
 

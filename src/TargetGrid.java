@@ -1,4 +1,4 @@
-public class TargetGrid extends Grid {
+public final class TargetGrid extends Grid {
 
     public TargetGrid() {
         super();

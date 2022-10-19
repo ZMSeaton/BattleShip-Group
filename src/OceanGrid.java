@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class OceanGrid extends Grid{
+public final class OceanGrid extends Grid{
 
     private ArrayList<Ship> ships;
 
