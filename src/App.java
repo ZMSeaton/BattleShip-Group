@@ -1,5 +1,6 @@
 public class App {
     public static void main(String[] args) throws Exception {
+        
         //just some test code
         HumanPlayer testHumanPlayer = new HumanPlayer("Test1");
         HumanPlayer testOpponentHumanPlayer = new HumanPlayer("Test2");
@@ -27,6 +28,8 @@ public class App {
             }
 
         }
+
+        System.out.println("Game over!");
         
     }
 }
