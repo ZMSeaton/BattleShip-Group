@@ -12,7 +12,7 @@ public final class Shot {
         char rowChar = humanValue.charAt(0);
         int rowIndex = (int)rowChar - 97; // 97 is the ascii number for a
         if ((rowIndex < 0) || (rowIndex > 9)){
-            throw new Exception("Invalid row for shot.");
+            throw new Exception("Row out of range.");
         }
         return rowIndex;
     }
@@ -26,7 +26,7 @@ public final class Shot {
             throw new Exception("Invalid column for shot.");
         }
         if ((columnIndex < 0) || (columnIndex > 9)){
-            throw new Exception("Invalid column for shot.");
+            throw new Exception("Column out of range.");
         }
         return columnIndex;
     }
