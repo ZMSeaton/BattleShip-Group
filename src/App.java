@@ -1,5 +1,6 @@
 public class App {
     public static void main(String[] args) throws Exception {
+        
         //just some test code
         HumanPlayer testHumanPlayer = new HumanPlayer("Test1");
         HumanPlayer testOpponentHumanPlayer = new HumanPlayer("Test2");
@@ -15,7 +16,11 @@ public class App {
             testHumanPlayer.recieveShotResult(shotResult, shot);
 
             if (shotResult == ShotResult.SUNK){
-                System.out.println("You sunk their " + testOpponentHumanPlayer.getLastSunkShip().getName() + "!");;
+                System.out.println("---------------------------------------------");
+                System.out.println();
+                System.out.println("You sunk their " + testOpponentHumanPlayer.getLastSunkShip().getName() + "!");
+                System.out.println();
+                System.out.println("---------------------------------------------");
             }
 
             if(testOpponentHumanPlayer.allShipsAreSunk()){
@@ -23,6 +28,8 @@ public class App {
             }
 
         }
+
+        System.out.println("Game over!");
         
     }
 }
