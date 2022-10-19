@@ -16,7 +16,7 @@ public final class Ship {
     }
 
     public Boolean isSunk() {
-        if (length >= hitCount) {
+        if (hitCount < length) {
             return false;
         } else {
             return true;
