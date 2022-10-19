@@ -4,6 +4,12 @@ public class TargetGrid extends Grid {
         super();
     }
 
+    @Override
+    public void printGrid(){ //label this grid Target grid when printing
+        System.out.println("Target Grid");
+        super.printGrid();
+    }
+
     public Boolean isShotValid(int row, int column) {
         if (cells[row][column].getState() == CellState.EMPTY) {
             return true;

@@ -13,6 +13,12 @@ public class OceanGrid extends Grid{
         }
     }
 
+    @Override
+    public void printGrid(){ //label this grid Ocean grid when printing
+        System.out.println("Ocean Grid");
+        super.printGrid();
+    }
+
     public void placeShip(Ship ship){
         for (Coordinate coordinates : ship.getCoordinates()){
             cells[coordinates.getRow()][coordinates.getColumn()].setState(CellState.OCCUPIED);
