@@ -1,13 +1,12 @@
 public class Game {
     private IPlayer[] players = new IPlayer[2];
 
-     public Game() throws Exception {
+    public Game() throws Exception {
         handleStartUpOption();
     }
 
     private void handleStartUpOption() throws Exception {
-        // options are 1,2,3,or 4
-        // print start up screen
+
         printStartScreen();
         int n = ConsoleHelper.convertInputToNumber(ConsoleHelper.getInput("Please enter your choice (1-4): "), 1, 4);
         // this should prompt the player for their choice until a valid choice is made.
@@ -37,17 +36,13 @@ public class Game {
 
     private void determineNumOfPlayers() throws Exception {
 
-        // ask for the number of players "Please enter the number of players (1 or 2): "
-        // the only valid inputs are 1 or 2. Enforce this.
-        // do we capture player name here and hand it off to the player object?
-
         String prompt = ConsoleHelper.getInput("Please enter the number of players (1 or 2): ");
 
         int numberOfPlayer = ConsoleHelper.convertInputToNumber(prompt, 1, 2);
 
         if (numberOfPlayer == 1) {
-            // create 1 humanPlayer and ask about game difficulty
-            // Player player1 = new Player;
+            // create 1 humanPlayer and ask about game difficulty for AI
+
             System.out.println("This will create a single player game");
 
         } else {
@@ -67,5 +62,5 @@ public class Game {
         System.out.println("4. Exit the game");
 
     }
-    
+
 }
