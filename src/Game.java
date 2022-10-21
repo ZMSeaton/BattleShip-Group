@@ -5,10 +5,10 @@ public class Game {
         
     }
 
-    private void handleStartUpOption() throws Exception {
+    public static void handleStartUpOption() throws Exception {
 
         printStartScreen();
-        int n = ConsoleHelper.convertInputToNumber(ConsoleHelper.getInput("Please enter your choice (1-4): "), 1, 4);
+        int n = ConsoleHelper.convertInputToNumber("Please enter your choice (1-4): ", " Please choose between options 1 through 4.", 1, 4);
         // this should prompt the player for their choice until a valid choice is made.
 
         switch (n) {
@@ -34,20 +34,21 @@ public class Game {
 
     }
 
-    private void determineNumOfPlayers() throws Exception {
+    private static void determineNumOfPlayers() throws Exception {
 
-        String prompt = ConsoleHelper.getInput("Please enter the number of players (1 or 2): ");
 
-        int numberOfPlayer = ConsoleHelper.convertInputToNumber(prompt, 1, 2);
+        int numberOfPlayer = ConsoleHelper.convertInputToNumber("Please enter the number of players (1 or 2): ", "Please choose 1 or 2 players.", 1, 2);
 
         if (numberOfPlayer == 1) {
             // create 1 humanPlayer and ask about game difficulty for AI
 
             System.out.println("This will create a single player game");
+            Demo.gameDemo();
 
         } else {
             // create 2 humanPlayers
             System.out.println("This will create a two player game.");
+            Demo.gameDemo();
 
         }
 

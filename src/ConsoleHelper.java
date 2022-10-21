@@ -16,30 +16,29 @@ public class ConsoleHelper {
         return inStr;
     }
 
-    public static int convertInputToNumber(String prompt, int min, int max) throws Exception {
-
-        if (min > max) {
-            throw new Exception("Min can't be greater than max.");
-        }
+    public static int convertInputToNumber(String prompt, String warning, int min, int max) { // throws exception?
 
         while (true) {
-
             String n = getInput(prompt);
 
             try {
-
                 int num = Integer.parseInt(n);
 
                 if (num >= min && num <= max) {
                     return num;
                 } else {
-                    System.out.println("Please enter a number between " + min + " and " + max + ".");
+                    System.out.println(warning);
+                    continue;
+
                 }
 
             } catch (NumberFormatException ex) {
-                System.out.println("Please enter a valid number.");
+                System.out.println(warning);
+
+                continue;
             }
 
         }
     }
+
 }
