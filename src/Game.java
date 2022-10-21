@@ -2,7 +2,7 @@ public class Game {
     private IPlayer[] players = new IPlayer[2];
 
     public Game() throws Exception {
-        handleStartUpOption();
+        
     }
 
     private void handleStartUpOption() throws Exception {
