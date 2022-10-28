@@ -7,42 +7,41 @@ public class Game {
 
     public static void handleStartUpOption() throws Exception {
 
-while(true){
+        while(true){
 
-        printStartScreen();
-        int n = ConsoleHelper.convertInputToNumber("Please enter your choice (1-4): ", " Please choose between options 1 through 4.", 1, 4);
-        // this should prompt the player for their choice until a valid choice is made.
+            printStartScreen();
+            int n = ConsoleHelper.convertInputToNumber("Please enter your choice (1-4): ", " Please choose between options 1 through 4.", 1, 4);
+            // this should prompt the player for their choice until a valid choice is made.
 
-        switch (n) {
+            switch (n) {
 
-            case 1:
-                System.out.println("Rule printing will be implemented later.");
-                System.out.println("+----+----+----+----+----+----+----+");
-                break;
+                case 1:
+                    System.out.println("Rule printing will be implemented later.");
+                    System.out.println("+----+----+----+----+----+----+----+");
+                    break;
 
-            case 2:
-                System.out.println("Scoreboard will be implemented later.");
-                System.out.println("+----+----+----+----+----+----+----+");
-                break;
+                case 2:
+                    System.out.println("Scoreboard will be implemented later.");
+                    System.out.println("+----+----+----+----+----+----+----+");
+                    break;
 
-            case 3:
-                System.out.println("Let's play some Battleship!");
-                System.out.println("+----+----+----+----+----+----+----+");
-                determineNumOfPlayers();
-                break;
+                case 3:
+                    System.out.println("Let's play some Battleship!");
+                    System.out.println("+----+----+----+----+----+----+----+");
+                    determineNumOfPlayers();
+                    break;
 
-            case 4:
+                case 4:
 
-                System.out.println("Thank you for playing Battleship!");
-                System.out.println("+----+----+----+----+----+----+----+");
-                System.exit(0);
+                    System.out.println("Thank you for playing Battleship!");
+                    System.out.println("+----+----+----+----+----+----+----+");
+                    System.exit(0);
+            }
+
         }
-
-    }
-}
+    }   
 
     private static void determineNumOfPlayers() throws Exception {
-
 
         int numberOfPlayer = ConsoleHelper.convertInputToNumber("Please enter the number of players (1 or 2): ", "Please choose 1 or 2 players.", 1, 2);
 
