@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 public class Game {
     private IPlayer[] players = new IPlayer[2];
     private int playerIndex;
@@ -105,6 +107,15 @@ public class Game {
                 result = "error";
         }
         System.out.println(opposingPlayer.getName() + "'s shot at " + lastShot.getHumanReadable() + " " + result);
+    }
+
+    private void antiCheatScreen(HumanPlayer currentPlayer){ //only a human player would use this method
+        try {
+            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor(); //should send clear screen command to terminal
+        } catch (Exception exception){
+            System.out.println("Unsuccesful clearing of screen");
+        }
+        ConsoleHelper.getInput("Press enter to play...");
     }
 
 }
