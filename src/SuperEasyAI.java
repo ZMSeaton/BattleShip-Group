@@ -21,11 +21,11 @@ public class SuperEasyAI implements IPlayer {
     public Shot takeShot(){
         Shot shot;
         while (true){
-            shot = new Shot(random.nextInt(0, 10), random.nextInt(0, 10));
-            if (shotsTaken.contains(shot)) {
+            shot = new Shot(random.nextInt(0, 10), random.nextInt(0, 10)); //generate new shot
+            if (shotsTaken.contains(shot)) { //check if shot has already been made
                 continue;
             } else {
-                shotsTaken.add(shot);
+                shotsTaken.add(shot); //succesful shot creation
                 return shot;
             }
         }
@@ -41,9 +41,9 @@ public class SuperEasyAI implements IPlayer {
     }
 
     public ShotResult recieveShot(Shot shot){
-        for (Ship ship : ships) {
-            for (Coordinate coordinate : ship.getCoordinates()){
-                if ((shot.getRow() == coordinate.getRow()) && (shot.getColumn() == coordinate.getColumn())){
+        for (Ship ship : ships) { //loop through all ships
+            for (Coordinate coordinate : ship.getCoordinates()){ //loop through the ship's coordinates
+                if ((shot.getRow() == coordinate.getRow()) && (shot.getColumn() == coordinate.getColumn())){ //if shot lines up with a ship's coordinates
                     ship.registerHit();
                     if (ship.isSunk()){
                         lastSunkShip = ship;
