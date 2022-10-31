@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public final class Shot {
     private int row;
     private int column;
@@ -50,4 +52,27 @@ public final class Shot {
     public int getColumn(){
         return column;
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(row, column);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        // self check
+        if (this == o)
+            return true;
+        // null check
+        if (o == null)
+            return false;
+        // type check and cast
+        if (getClass() != o.getClass())
+            return false;
+        Shot shot = (Shot) o;
+        // field comparison
+        return Objects.equals(this.row, shot.getRow())// row
+                && Objects.equals(this.column, shot.getColumn());// column
+    }
+
 }
