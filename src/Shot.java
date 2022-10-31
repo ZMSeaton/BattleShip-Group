@@ -2,10 +2,15 @@ public final class Shot {
     private int row;
     private int column;
 
-    public Shot(String humanValue) throws Exception {
+    public Shot(String humanValue) throws Exception { //makes shot from human typed value
         String humanValueCleaned = (humanValue.replaceAll(" ", "")).toLowerCase(); //make everything lowercase and remove any spaces
         row = humanToComputerRow(humanValueCleaned);
         column = humanToComputerColumn(humanValueCleaned);
+    }
+
+    public Shot(int row, int column){
+        this.row = row;
+        this.column = column;
     }
 
     private int humanToComputerRow(String humanValue) throws Exception {
