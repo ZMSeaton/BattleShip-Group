@@ -71,4 +71,40 @@ public class Game {
 
     }
 
+    private void turnFeedbackTakeShot(Shot shot, ShotResult shotResult, Ship sunkShip){ //only a human player would use this method
+        String result;
+        switch(shotResult){
+            case MISS:
+                result = "missed.";
+                break;
+            case HIT:
+                result = "hit!";
+                break;
+            case SUNK:
+                result = "sunk their " + sunkShip.getName();
+                break;
+            default:
+                result = "error";
+        }
+        System.out.println("You're shot at " + shot.getHumanReadable() + " " + result);
+    }
+
+    private void turnFeedbackReceiveShot(Shot shot, ShotResult shotResult, HumanPlayer currentPlayer, IPlayer opposingPlayer){ //only a human player would use this method
+        String result;
+        switch(shotResult){
+            case MISS:
+                result = "missed your ships.";
+                break;
+            case HIT:
+                result = "hit a ship!";
+                break;
+            case SUNK:
+                result = "sunk your " + currentPlayer.getLastSunkShip();
+                break;
+            default:
+                result = "error";
+        }
+        System.out.println(opposingPlayer.getName() + "'s shot at " + shot.getHumanReadable() + " " + result);
+    }
+
 }

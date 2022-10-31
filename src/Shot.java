@@ -36,7 +36,7 @@ public final class Shot {
         return columnIndex;
     }
 
-    public String getHumanReadable(int rowIndex, int columnIndex){
+    public String getHumanReadable(){
         char row = (char)(65 + this.row); //65 is ascii for A
         int column = this.column + 1; //It's zero indexed, so to make it human readable, add 1
         String humanReadable = Character.toString(row) + Integer.toString(column);
