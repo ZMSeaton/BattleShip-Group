@@ -1,7 +1,8 @@
 public class Game {
     private IPlayer[] players = new IPlayer[2];
+    private int playerIndex;
 
-    public Game() throws Exception {
+    public void playGame() throws Exception {
         
     }
 
