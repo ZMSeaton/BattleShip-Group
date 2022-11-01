@@ -1,5 +1,4 @@
-
-
+import java.io.IOException;
 
 public class Game {
     private IPlayer[] players = new IPlayer[2];
@@ -102,6 +101,51 @@ public class Game {
         System.out.println("3. Play Battleship");
         System.out.println("4. Exit the game");
 
+    }
+
+    private void turnFeedbackTakeShot(Shot shot, ShotResult shotResult, Ship sunkShip){ //only a human player would use this method //hand method null if ship wasn't sunk
+        String result;
+        switch(shotResult){
+            case MISS:
+                result = "missed.";
+                break;
+            case HIT:
+                result = "hit!";
+                break;
+            case SUNK:
+                result = "sunk their " + sunkShip.getName();
+                break;
+            default:
+                result = "error";
+        }
+        System.out.println("You're shot at " + shot.getHumanReadable() + " " + result);
+    }
+
+    private void turnFeedbackReceiveShot(Shot lastShot, ShotResult lastShotResult, HumanPlayer currentPlayer, IPlayer opposingPlayer){ //only a human player would use this method
+        String result;
+        switch(lastShotResult){
+            case MISS:
+                result = "missed your ships.";
+                break;
+            case HIT:
+                result = "hit a ship!";
+                break;
+            case SUNK:
+                result = "sunk your " + currentPlayer.getLastSunkShip();
+                break;
+            default:
+                result = "error";
+        }
+        System.out.println(opposingPlayer.getName() + "'s shot at " + lastShot.getHumanReadable() + " " + result);
+    }
+
+    private void antiCheatScreen(HumanPlayer currentPlayer){ //only a human player would use this method
+        try {
+            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor(); //should send clear screen command to terminal
+        } catch (Exception exception){
+            System.out.println("Unsuccesful clearing of screen");
+        }
+        ConsoleHelper.getInput("Press enter to play...");
     }
 
 }

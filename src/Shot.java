@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public final class Shot {
     private int row;
     private int column;
@@ -36,7 +38,7 @@ public final class Shot {
         return columnIndex;
     }
 
-    public String getHumanReadable(int rowIndex, int columnIndex){
+    public String getHumanReadable(){
         char row = (char)(65 + this.row); //65 is ascii for A
         int column = this.column + 1; //It's zero indexed, so to make it human readable, add 1
         String humanReadable = Character.toString(row) + Integer.toString(column);
@@ -50,4 +52,27 @@ public final class Shot {
     public int getColumn(){
         return column;
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(row, column);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        // self check
+        if (this == o)
+            return true;
+        // null check
+        if (o == null)
+            return false;
+        // type check and cast
+        if (getClass() != o.getClass())
+            return false;
+        Shot shot = (Shot) o;
+        // field comparison
+        return Objects.equals(this.row, shot.getRow())// row
+                && Objects.equals(this.column, shot.getColumn());// column
+    }
+
 }
