@@ -1,11 +1,30 @@
+
+
+
 public class Game {
     private IPlayer[] players = new IPlayer[2];
+    //should we have separate instance variables for player1 and player2?
     private int playerIndex;
+    private boolean isGameOver = false;
 
     public void playGame() throws Exception {
-        
-    }
 
+        for(IPlayer player : players){
+        
+        while(isGameOver == false){
+            
+            //take shot
+
+            
+            //give player feedback
+
+            //switch players. 
+            //anticheating display. return to begining of game loop.
+
+        }
+    }
+}
+    
     public static void handleStartUpOption() throws Exception {
 
         while(true){
@@ -48,14 +67,28 @@ public class Game {
 
         if (numberOfPlayer == 1) {
             // create 1 humanPlayer and ask about game difficulty for AI
+            String name = ConsoleHelper.getInput("Please enter the name of Player 1: ");
+            HumanPlayer player1 = new HumanPlayer(name);
+            AIPlayer player2 = new AIPlayer;
+            players[0] = player1;
+            players[1] = player2;
 
-            System.out.println("This will create a single player game");
-            Demo.gameDemo();
+
+
+            //System.out.println("This will create a single player game");
+            //Demo.gameDemo();
 
         } else {
             // create 2 humanPlayers
-            System.out.println("This will create a two player game.");
-            Demo.gameDemo();
+            String name1 = ConsoleHelper.getInput("Please enter the name of Player 1: ");
+            HumanPlayer player1 = new HumanPlayer(name1);
+            String name2 = ConsoleHelper.getInput("Please enter the name of Player 2: ");
+            HumanPlayer player2 = new HumanPlayer(name2);
+            players[0] = player1;
+            players[1] = player2;
+
+            //System.out.println("This will create a two player game.");
+            //Demo.gameDemo();
 
         }
 
