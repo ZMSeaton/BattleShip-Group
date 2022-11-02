@@ -18,7 +18,7 @@ public class Demo {
             if (shotResult == ShotResult.SUNK) {
                 System.out.println("---------------------------------------------");
                 System.out.println();
-                System.out.println("You sunk their " + testOpponentHumanPlayer.getLastSunkShip().getName() + "!");
+                System.out.println("You sunk their ");// + testOpponentHumanPlayer.getLastSunkShip().getName() + "!");
                 System.out.println();
                 System.out.println("---------------------------------------------");
             }
