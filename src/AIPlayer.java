@@ -6,8 +6,8 @@ protected ShipBuilder shipBuilder = new ShipBuilder();
 protected OceanGrid oceanGrid;
 protected TargetGrid targetGrid;
 
-public AIPlayer(String name) {
-    this.name = name;
+public AIPlayer() {
+    this.name = "SuperRandom";
     oceanGrid = new OceanGrid(shipBuilder.getShips());
     targetGrid = new TargetGrid();
 }
