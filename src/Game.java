@@ -16,37 +16,41 @@ public class Game {
 
                 IPlayer currentPlayer = players[playerIndex];
 
-                IPlayer otherPlayer;
+                IPlayer opposingPlayer;
                 if (playerIndex == 0) {
-                    otherPlayer = players[1];
+                    opposingPlayer = players[1];
                 } else {
-                    otherPlayer = players[0];
+                    opposingPlayer = players[0];
                 }
+                Shot lastShot = null;
+                ShotResult lastShotResult = null;
 
+                if(round != 0 && currentPlayer instanceof HumanPlayer){
+                    turnFeedbackReceiveShot(lastShot, lastShotResult, opposingPlayer);
+                } else{
+                    continue;
+                }
 
                 // take shot
                 Shot s = currentPlayer.takeShot();
-                ShotResult result = otherPlayer.recieveShot(s);// checks other player's grid, returns HIT/MISS/SUNK
+                ShotResult result = opposingPlayer.recieveShot(s);// checks other player's grid, returns HIT/MISS/SUNK
                 currentPlayer.recieveShotResult(result, s);
 
-                // check for sunk ship.
-                Ship sunkShip;
-                if (result == ShotResult.SUNK) {
-                    sunkShip = otherPlayer.getLastSunkShip();
-
-                } else {
-                    sunkShip = null;
-                }
+            
+              
                 // give player feedback
 
-                turnFeedbackTakeShot(s, result, sunkShip);
+                turnFeedbackTakeShot(s, result);
+                //after this feedback, we may want to have player press enter to continue so they have a chance to read the feedback.
 
                 // check for number of sunk ships to see if the game is over.
-                if (otherPlayer.allShipsAreSunk() == true) {
+                if (opposingPlayer.allShipsAreSunk() == true) {
                     isGameOver = true;
                 } else {
                     isGameOver = false;
                 }
+                lastShot = s;
+                lastShotResult = result;
 
                 // switch players.
                 changePlayerIndex();
@@ -56,7 +60,7 @@ public class Game {
 
                 
 
-
+                round++;
 
             }
         }
