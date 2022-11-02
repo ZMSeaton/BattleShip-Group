@@ -157,10 +157,7 @@ public class Game {
 
     }
 
-    private void turnFeedbackTakeShot(Shot shot, ShotResult shotResult, Ship sunkShip) { // only a human player would
-                                                                                         // use this method //hand
-                                                                                         // method null if ship wasn't
-                                                                                         // sunk
+    private void turnFeedbackTakeShot(Shot shot, ShotResult shotResult) { // only a human player would use this method
         String result;
         switch (shotResult) {
             case MISS:
@@ -170,16 +167,15 @@ public class Game {
                 result = "hit!";
                 break;
             case SUNK:
-                result = "sunk their " + sunkShip.getName();
+                result = "sunk their " + shotResult.getSunkShip() + ".";
                 break;
             default:
                 result = "error";
         }
-        System.out.println("You're shot at " + shot.getHumanReadable() + " " + result);
+        System.out.println("Your shot at " + shot.getHumanReadable() + " " + result);
     }
 
-    private void turnFeedbackReceiveShot(Shot lastShot, ShotResult lastShotResult, HumanPlayer currentPlayer,
-            IPlayer opposingPlayer) { // only a human player would use this method
+    private void turnFeedbackReceiveShot(Shot lastShot, ShotResult lastShotResult, IPlayer opposingPlayer) {
         String result;
         switch (lastShotResult) {
             case MISS:
@@ -189,7 +185,7 @@ public class Game {
                 result = "hit a ship!";
                 break;
             case SUNK:
-                result = "sunk your " + currentPlayer.getLastSunkShip();
+                result = "sunk your " + lastShotResult.getSunkShip() + "!";
                 break;
             default:
                 result = "error";
@@ -197,14 +193,30 @@ public class Game {
         System.out.println(opposingPlayer.getName() + "'s shot at " + lastShot.getHumanReadable() + " " + result);
     }
 
-    private void antiCheatScreen(HumanPlayer currentPlayer) { // only a human player would use this method
+    public void antiCheatScreen(IPlayer currentPlayer) {
+
         try {
-            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor(); // should send clear screen command to
-                                                                                  // terminal
+            String os = System.getProperty("os.name");
+
+            if (os.contains("Windows"))
+            {
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor(); // should send clear screen command to terminal for windows
+            }
+            else
+            {
+                Runtime.getRuntime().exec(new String[] {"clear"}); // should send clear screen command to terminals other than windows
+            }
+            
         } catch (Exception exception) {
+            System.out.println(exception.getLocalizedMessage());
             System.out.println("Unsuccesful clearing of screen");
         }
-        ConsoleHelper.getInput("Press enter to play...");
+
+        for (int i = 0; i < 100; i++){ //here just for added security
+            System.out.println();
+        }
+        
+        ConsoleHelper.getInput(currentPlayer.getName() + ", press enter to play...");
     }
 
 }

@@ -9,7 +9,5 @@ public interface IPlayer {
     public ShotResult recieveShot(Shot shot);
 
     public void recieveShotResult(ShotResult shotResult, Shot shot);
-
-    public Ship getLastSunkShip();
     
 }
