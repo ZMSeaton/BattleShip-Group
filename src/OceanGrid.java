@@ -4,7 +4,6 @@ import java.util.Arrays;
 public final class OceanGrid extends Grid{
 
     private ArrayList<Ship> ships;
-    private Ship lastSunkShip;
 
     public OceanGrid(Ship[] ships){
         super();
@@ -40,8 +39,9 @@ public final class OceanGrid extends Grid{
             cell.getShip().registerHit(); //Should this be where ship is hit?
             cell.setState(CellState.HIT); //updates the cell's state //should this happen here?
             if (cell.getShip().isSunk()){
-                lastSunkShip = cell.getShip();
-                return ShotResult.SUNK;
+                ShotResult result = ShotResult.SUNK;
+                result.setSunkShip(cell.getShip().getName());
+                return result;
             } else {
                 return ShotResult.HIT;
             }
@@ -57,10 +57,6 @@ public final class OceanGrid extends Grid{
             }
         }
         return true;
-    }
-
-    public Ship getLastSunkShip(){
-        return lastSunkShip;
     }
 
 }

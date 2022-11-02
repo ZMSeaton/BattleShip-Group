@@ -91,7 +91,7 @@ public class Game {
         System.out.println("You're shot at " + shot.getHumanReadable() + " " + result);
     }
 
-    private void turnFeedbackReceiveShot(Shot lastShot, ShotResult lastShotResult, HumanPlayer currentPlayer, IPlayer opposingPlayer){ //only a human player would use this method
+    private void turnFeedbackReceiveShot(Shot lastShot, ShotResult lastShotResult, IPlayer opposingPlayer){ //only a human player would use this method
         String result;
         switch(lastShotResult){
             case MISS:
@@ -101,7 +101,7 @@ public class Game {
                 result = "hit a ship!";
                 break;
             case SUNK:
-                result = "sunk your " + currentPlayer.getLastSunkShip();
+                result = "sunk your " + lastShotResult.getSunkShip() + "!";
                 break;
             default:
                 result = "error";
