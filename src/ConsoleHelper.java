@@ -16,7 +16,7 @@ public class ConsoleHelper {
         return inStr;
     }
 
-    public static int convertInputToNumber(String prompt, String warning, int min, int max) { // throws exception?
+    public static int convertInputToNumber(String prompt, String warning, int min, int max) { 
 
         while (true) {
             String n = getInput(prompt);
