@@ -10,19 +10,68 @@ public class Game {
     public void playGame() throws Exception {
 
         for (IPlayer player : players) {
-
+            playerIndex = 0;
+            Integer round = 0;
             while (isGameOver == false) {
 
-                // take shot
+                IPlayer currentPlayer = players[playerIndex];
 
+                IPlayer otherPlayer;
+                if (playerIndex == 0) {
+                    otherPlayer = players[1];
+                } else {
+                    otherPlayer = players[0];
+                }
+
+
+                // take shot
+                Shot s = currentPlayer.takeShot();
+                ShotResult result = otherPlayer.recieveShot(s);// checks other player's grid, returns HIT/MISS/SUNK
+                currentPlayer.recieveShotResult(result, s);
+
+                // check for sunk ship.
+                Ship sunkShip;
+                if (result == ShotResult.SUNK) {
+                    sunkShip = otherPlayer.getLastSunkShip();
+
+                } else {
+                    sunkShip = null;
+                }
                 // give player feedback
 
+                turnFeedbackTakeShot(s, result, sunkShip);
+
+                // check for number of sunk ships to see if the game is over.
+                if (otherPlayer.allShipsAreSunk() == true) {
+                    isGameOver = true;
+                } else {
+                    isGameOver = false;
+                }
+
                 // switch players.
+                changePlayerIndex();
                 // anticheating display. return to begining of game loop.
+                antiCheatScreen(null);
+
+
+                
+
+
 
             }
         }
     }
+
+    private void changePlayerIndex() {
+        if (playerIndex == 0) {
+            playerIndex++;
+        } else {
+            playerIndex--;
+        }
+
+    }
+
+
 
     public void handleStartUpOption() {
 
@@ -61,20 +110,19 @@ public class Game {
         }
     }
 
-    private void createPlayers(){
+    private void createPlayers() {
         int n = determineNumOfPlayers();
-        if(n==2){
-            
-           players[0]= createHumanPlayer();
-           players[1]= createHumanPlayer();
-            
+        if (n == 2) {
 
-        }else{
-          players[0]= createHumanPlayer();
-          players[1]= createAIPlayers();
+            players[0] = createHumanPlayer();
+            players[1] = createHumanPlayer();
+
+        } else {
+            players[0] = createHumanPlayer();
+            players[1] = createAIPlayers();
 
         }
-       
+
     }
 
     private int determineNumOfPlayers() {
