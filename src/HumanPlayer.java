@@ -15,18 +15,19 @@ public class HumanPlayer implements IPlayer {
         return name;
     }
 
-    public void printGrids(){
+    private void printGrids(){
         targetGrid.printGrid();
         oceanGrid.printGrid();
     }
 
-    public Shot takeShot() {
+    public Shot takeShot() {//prints grids and asks for shot from player
 
         String humancoordinate;
 
         Shot shot;
 
         while (true) {
+            printGrids();
 
             humancoordinate = ConsoleHelper.getInput("Type where you want to shoot.");
 
