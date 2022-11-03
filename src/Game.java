@@ -53,7 +53,7 @@ public class Game {
                 lastShotResult = result;
 
                 // switch players.
-                changePlayerIndex();
+                playerIndex = changePlayerIndex(playerIndex);
                 // anticheating display. return to begining of game loop.
                 antiCheatScreen(null);
 
@@ -66,12 +66,13 @@ public class Game {
         }
     }
 
-    private void changePlayerIndex() {
+    public Integer changePlayerIndex(Integer playerIndex) {
         if (playerIndex == 0) {
             playerIndex++;
         } else {
             playerIndex--;
         }
+        return playerIndex;
 
     }
 
