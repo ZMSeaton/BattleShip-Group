@@ -7,7 +7,6 @@ public class SuperEasyAI implements IPlayer {
     private Random random = new Random();
     private List<Shot> shotsTaken = new ArrayList<Shot>();
     private Ship[] ships;
-    private Ship lastSunkShip;
 
     public SuperEasyAI(){
         ShipBuilder shipBuilder = new ShipBuilder();
@@ -46,8 +45,9 @@ public class SuperEasyAI implements IPlayer {
                 if ((shot.getRow() == coordinate.getRow()) && (shot.getColumn() == coordinate.getColumn())){ //if shot lines up with a ship's coordinates
                     ship.registerHit();
                     if (ship.isSunk()){
-                        lastSunkShip = ship;
-                        return ShotResult.SUNK;
+                        ShotResult result = ShotResult.SUNK;
+                        result.setSunkShip(ship.getName());
+                        return result;
                     } else {
                         return ShotResult.HIT;
                     }
@@ -59,10 +59,6 @@ public class SuperEasyAI implements IPlayer {
 
     public void recieveShotResult(ShotResult shotResult, Shot shot){
         //This AI doesn't care about what it hit, so this method does nothing
-    }
-
-    public Ship getLastSunkShip(){
-        return lastSunkShip;
     }
 
 }

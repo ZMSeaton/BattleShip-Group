@@ -9,12 +9,14 @@ public class Game {
 
     public void playGame() throws Exception {
 
-        
             playerIndex = 0;
             Integer round = 0;
+            Shot lastShot = null;
+            ShotResult lastShotResult = null;
+            IPlayer currentPlayer = players[playerIndex];
             while (isGameOver == false) {
 
-                IPlayer currentPlayer = players[playerIndex];
+                currentPlayer = players[playerIndex];
 
                 IPlayer opposingPlayer;
                 if (playerIndex == 0) {
@@ -22,13 +24,12 @@ public class Game {
                 } else {
                     opposingPlayer = players[0];
                 }
-                Shot lastShot = null;
-                ShotResult lastShotResult = null;
+                
 
                 if(round != 0 && currentPlayer instanceof HumanPlayer){
                     turnFeedbackReceiveShot(lastShot, lastShotResult, opposingPlayer);
                 } else{
-                    continue;
+                    //continue;
                 }
 
                 // take shot
@@ -40,7 +41,10 @@ public class Game {
               
                 // give player feedback
 
-                turnFeedbackTakeShot(s, result);
+                if(currentPlayer instanceof HumanPlayer){
+                    turnFeedbackTakeShot(s, result);
+                }
+                
                 //after this feedback, we may want to have player press enter to continue so they have a chance to read the feedback.
 
                 // check for number of sunk ships to see if the game is over.
@@ -55,14 +59,18 @@ public class Game {
                 // switch players.
                 playerIndex = changePlayerIndex(playerIndex);
                 // anticheating display. return to begining of game loop.
-                antiCheatScreen(null);
-
-
                 
+                if(opposingPlayer instanceof HumanPlayer){
+                    if(currentPlayer instanceof HumanPlayer){
+                        antiCheatScreen(currentPlayer);
+                    }
+                }
 
                 round++;
 
             }
+
+            System.out.println(currentPlayer.getName() + " won!");
         
     }
 
@@ -103,7 +111,12 @@ public class Game {
                     System.out.println("Let's play some Battleship!");
                     System.out.println("+----+----+----+----+----+----+----+");
                     createPlayers();
-                    break;
+                    try {
+                        playGame();
+                    } catch (Exception e){
+                        System.out.println(e.getLocalizedMessage());
+                    }
+                    return;
 
                 case 4:
 
@@ -125,7 +138,6 @@ public class Game {
         } else {
             players[0] = createHumanPlayer();
             players[1] = createAIPlayers();
-
         }
 
     }
@@ -147,9 +159,8 @@ public class Game {
 
     private IPlayer createAIPlayers() {
         // ask for difficulty when we have more than 1 AI to play with
-        AIPlayer player = new AIPlayer();
+        SuperEasyAI player = new SuperEasyAI(); //temporarily using my super easy AI while Ben's making his easy AI
         return player;
-
     }
 
     private void printStartScreen() {

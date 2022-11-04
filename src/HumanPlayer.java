@@ -25,9 +25,11 @@ public class HumanPlayer implements IPlayer {
         String humancoordinate;
 
         Shot shot;
+        
+        printGrids();
 
         while (true) {
-            printGrids();
+            
 
             humancoordinate = ConsoleHelper.getInput("Type where you want to shoot.");
 
