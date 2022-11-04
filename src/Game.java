@@ -9,7 +9,7 @@ public class Game {
 
     public void playGame() throws Exception {
 
-        for (IPlayer player : players) {
+        
             playerIndex = 0;
             Integer round = 0;
             while (isGameOver == false) {
@@ -63,7 +63,7 @@ public class Game {
                 round++;
 
             }
-        }
+        
     }
 
     public Integer changePlayerIndex(Integer playerIndex) {
