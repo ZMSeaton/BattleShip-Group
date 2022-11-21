@@ -49,6 +49,9 @@ public class Grid {
         } else if (state == CellState.HIT){
             return "X";
         } else if (state == CellState.MISS){
+            if (this instanceof OceanGrid){ //When displaying misses for ocean grid, it will display a lowercase o, if the grid is not an ocean grid, it will display an uppercase one
+                return "o";
+            }
             return "O";
         } else if (state == CellState.OCCUPIED){
             return String.valueOf(cell.getShip().getName().charAt(0)); //Displays first letter of ship
